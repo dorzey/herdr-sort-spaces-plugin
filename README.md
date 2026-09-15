@@ -2,6 +2,7 @@
 
 <p align="center">
   <a href="https://github.com/dorzey/herdr-sort-spaces-plugin/actions/workflows/ci.yml"><img alt="CI" src="https://github.com/dorzey/herdr-sort-spaces-plugin/actions/workflows/ci.yml/badge.svg" /></a>
+  <a href="LICENSE"><img alt="MIT License" src="https://img.shields.io/badge/license-MIT-2ea44f" /></a>
   <img alt="Herdr 0.8.0+" src="https://img.shields.io/badge/Herdr-0.8.0%2B-66b3ff" />
   <img alt="Linux and macOS" src="https://img.shields.io/badge/platform-Linux%20%7C%20macOS-c084fc" />
 </p>
