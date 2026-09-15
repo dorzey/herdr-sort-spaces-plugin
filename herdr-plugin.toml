@@ -29,3 +29,19 @@ command = ["target/release/sort-spaces", "asc"]
 [[events]]
 on = "workspace.renamed"
 command = ["target/release/sort-spaces", "asc"]
+
+# Herdr binds keys only from the user's config, so the default key is installed
+# by an action: one marker-fenced block, removable by the sibling action.
+[[actions]]
+id = "setup-keys"
+title = "sort-spaces: install the default keybinding"
+description = "Bind prefix+shift+s to Sort spaces A-Z, and write Sort spaces Z-A beside it as a comment. One block in your Herdr config, backed up first."
+contexts = ["workspace"]
+command = ["bash", "keys.sh", "setup"]
+
+[[actions]]
+id = "remove-keys"
+title = "sort-spaces: remove the default keybinding"
+description = "Delete the block setup-keys wrote."
+contexts = ["workspace"]
+command = ["bash", "keys.sh", "remove"]
