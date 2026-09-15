@@ -1,0 +1,31 @@
+id = "dorzey.sort-spaces"
+name = "Sort Spaces"
+version = "0.1.0"
+min_herdr_version = "0.8.0"
+description = "Keep workspaces ordered lexicographically by label"
+# Uses the raw Unix socket for workspace.move_block (no CLI wrapper exists),
+# so Windows named pipes are not supported.
+platforms = ["linux", "macos"]
+
+[[build]]
+command = ["cargo", "build", "--release"]
+
+[[actions]]
+id = "sort-asc"
+title = "Sort spaces A-Z"
+contexts = ["workspace"]
+command = ["target/release/sort-spaces", "asc"]
+
+[[actions]]
+id = "sort-desc"
+title = "Sort spaces Z-A"
+contexts = ["workspace"]
+command = ["target/release/sort-spaces", "desc"]
+
+[[events]]
+on = "workspace.created"
+command = ["target/release/sort-spaces", "asc"]
+
+[[events]]
+on = "workspace.renamed"
+command = ["target/release/sort-spaces", "asc"]
