@@ -17,10 +17,10 @@ herdr plugin install dorzey/herdr-sort-spaces-plugin --yes
 
 Four actions are added to the workspace context menu:
 
-- **Sort spaces A-Z** (`sort-spaces.sort-asc`)
-- **Sort spaces Z-A** (`sort-spaces.sort-desc`)
-- **sort-spaces: install the default keybinding** (`sort-spaces.setup-keys`)
-- **sort-spaces: remove the default keybinding** (`sort-spaces.remove-keys`)
+- **Sort spaces A-Z** (`dorzey.sort-spaces.sort-asc`)
+- **Sort spaces Z-A** (`dorzey.sort-spaces.sort-desc`)
+- **sort-spaces: install the default keybinding** (`dorzey.sort-spaces.setup-keys`)
+- **sort-spaces: remove the default keybinding** (`dorzey.sort-spaces.remove-keys`)
 
 Auto-sort on `workspace.created` and `workspace.renamed` is on by default (ascending).
 
@@ -28,10 +28,12 @@ Auto-sort on `workspace.created` and `workspace.renamed` is on by default (ascen
 
 Herdr only binds keys from your own config, so run **sort-spaces: install the
 default keybinding** once (from the workspace action menu, or
-`herdr plugin action invoke sort-spaces.setup-keys`) to write `prefix+shift+s`
-→ `sort-spaces.sort-asc` into `~/.config/herdr/config.toml`. It backs the file
-up first and leaves a commented-out binding for `sort-desc` beside it. Run
-**sort-spaces: remove the default keybinding** to undo it.
+`herdr plugin action invoke setup-keys --plugin dorzey.sort-spaces`) to write
+`prefix+shift+s` → `dorzey.sort-spaces.sort-asc` into
+`~/.config/herdr/config.toml`, then `herdr server reload-config` to pick it
+up. It backs the file up first and leaves a commented-out binding for
+`sort-desc` beside it. Run **sort-spaces: remove the default keybinding** to
+undo it.
 
 To bind a key yourself instead:
 
@@ -39,7 +41,7 @@ To bind a key yourself instead:
 [[keys.command]]
 key = "prefix+shift+s"
 type = "plugin_action"
-command = "sort-spaces.sort-asc"
+command = "dorzey.sort-spaces.sort-asc"
 description = "sort spaces A-Z"
 ```
 
